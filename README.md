@@ -1,10 +1,10 @@
 LARAVEL 2020-D-G7 , Data Rumah Sakit\
 
 
-Nur Fidrotul Nasroh 
-Dimas Rayandra
-Meifi A 
-Seno 
+1.Nur Fidrotul Nasroh 
+2.Dimas Rayandra
+3.Meifi A 
+4.Seno 
 
 Langkah Install Project :
 
