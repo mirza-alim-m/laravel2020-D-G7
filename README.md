@@ -9,9 +9,9 @@ Seno
 Langkah Install Project :
 
   1. git clone "https://github.com/mirza-alim-m/laravel2020-D-G7"
-    composer install
-    configuring file .env
-    php artisan migrate(opsional : php artisan migrate:fresh)
-    php artisan db:seed --class=DatabaseSeeder
-    php artisan serve
+  2. composer install
+  3. configuring file .env
+  4. php artisan migrate(opsional : php artisan migrate:fresh)
+  5. php artisan db:seed --class=DatabaseSeeder
+  6. php artisan serve
 
