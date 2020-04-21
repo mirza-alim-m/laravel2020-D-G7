@@ -49,7 +49,7 @@ INSERT INTO `dokter` (`id`, `nama`, `alamat`, `email`, `no_hp`, `nip`, `created_
 (9, 'Kezia Usamah', 'Jr. Elang No. 193, Langsa 31879, Gorontalo', 'ifujiati@example.org', '+9488682545661', '+4500340565227', '2020-04-15 05:31:26', '2020-04-15 05:31:26'),
 (10, 'Paris Permata', 'Dk. Ikan No. 838, Tidore Kepulauan 89317, DIY', 'edi52@example.net', '+8827034208175', '+1312976624712', '2020-04-15 05:31:26', '2020-04-15 05:31:26'),
 (11, 'Kusuma Estiawan Saputra S.Psi', 'Dk. Bass No. 764, Pematangsiantar 92488, KalSel', 'gawati36@example.org', '+8329191856240', '+9359958772163', '2020-04-15 05:31:26', '2020-04-15 05:31:26'),
-(12, 'Dina Kusmawati', 'Jln. Baing No. 686, Cimahi 44947, SulTra', 'kusumo.irsad@example.org', '+9356784129151', '+8134708584493', '2020-04-15 05:31:26', '2020-04-15 05:31:26'),
+(12, 'Dina Kusmawati', 'Jl. Baing No. 686, Cimahi 44947, SulTra', 'kusumo.irsad@example.org', '+9356784129151', '+8134708584493', '2020-04-15 05:31:26', '2020-04-15 05:31:26'),
 (13, 'Rafid Samosir S.Farm', 'Jr. Panjaitan No. 225, Pasuruan 39417, DKI', 'zulaika.mutia@example.org', '+8920077971133', '+6910830982187', '2020-04-15 05:31:26', '2020-04-15 05:31:26'),
 (14, 'Tina Anggraini', 'Gg. Sutan Syahrir No. 443, Bitung 74656, MalUt', 'hutasoit.martaka@example.net', '+3279185327043', '+3414496487249', '2020-04-15 05:31:26', '2020-04-15 05:31:26'),
 (15, 'Gasti Tira Palastri', 'Jln. Pelajar Pejuang 45 No. 376, Langsa 43058, DKI', 'laila02@example.com', '+6597770704232', '+2189312353231', '2020-04-15 05:31:26', '2020-04-15 05:31:26'),
