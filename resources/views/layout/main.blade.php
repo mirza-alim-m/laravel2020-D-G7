@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,46 +18,59 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
 </head>
+
 <body>
-  <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
- 
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/kamars/index">Data Kamar</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/pegawai/index">Data Pegawai</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/pasien/index">Data Pasien</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/dokter/index">Data Dokter</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Tambah Data
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/kamars/create">Tambah Data Kamar</a>
-          <a class="dropdown-item" href="/pegawai/create">Tambah Data Pegawai</a>
-          <a class="dropdown-item" href="/pasien/create">Tambah Data Pasien</a>
-          <a class="dropdown-item" href="/dokter/create">Tambah Data Dokter</a>
-        </div>
-      </li>
-    </form>
-    </ul>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/kamars/index">Data Kamar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pegawai/index">Data Pegawai</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pasien/index">Data Pasien</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dokter/index">Data Dokter</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Tambah Data
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/kamars/create">Tambah Data Kamar</a>
+                            <a class="dropdown-item" href="/pegawai/create">Tambah Data Pegawai</a>
+                            <a class="dropdown-item" href="/pasien/create">Tambah Data Pasien</a>
+                            <a class="dropdown-item" href="/dokter/create">Tambah Data Dokter</a>
+                        </div>
+                    </li>
+                    </form>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#" onclick="signOut()">Logout</a>
+                      <form id="login-form" action="{{ route('logout') }}" method="post" style="display: none">@csrf</form>
+                  </li>
+                </ul>
+        </nav>
+    </div>
     </nav>
-  </div>
-</nav>
 
 
-@yield('content')
+    @yield('content')
 
+    <script>
+      function signOut(){
+        const logout = document.querySelector('#login-form');
+
+        logout.submit();
+      }
+    </script>
 </body>
+
 </html>
