@@ -9,7 +9,7 @@ class Dokter extends Model
 {
     protected $table = 'dokter';
 
-    protected $fillable = ['nama','alamat','email','no_hp','nip'];
+    protected $fillable = ['nama','alamat','email','no_hp','nip','image','doc_pdf'];
     
     use Sortable;
 

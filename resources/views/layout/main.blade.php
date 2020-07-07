@@ -37,7 +37,7 @@
                         <a class="nav-link" href="/pasien/index">Data Pasien</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/dokter/index">Data Dokter</a>
+                        <a class="nav-link" href="{{ route('dokters.index')}}">Data Dokter</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -48,7 +48,7 @@
                             <a class="dropdown-item" href="/kamars/create">Tambah Data Kamar</a>
                             <a class="dropdown-item" href="/pegawai/create">Tambah Data Pegawai</a>
                             <a class="dropdown-item" href="/pasien/create">Tambah Data Pasien</a>
-                            <a class="dropdown-item" href="/dokter/create">Tambah Data Dokter</a>
+                            <a class="dropdown-item" href="{{ route('dokters.create')}}">Tambah Data Dokter</a>
                         </div>
                     </li>
                     </form>

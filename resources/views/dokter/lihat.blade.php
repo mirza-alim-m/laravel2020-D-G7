@@ -13,9 +13,9 @@
                 <p class="card-text"><b>Email </b><i>{{$dokter->email}}</i></p>
                 <p class="card-text"><b>No HP </b>{{$dokter->no_hp}}</p>
                 <p class="card-text"><b>Nip </b>{{$dokter->nip}}</p>
-                <a href="/dokter/index" class="card-link">Kembali</a>
-             
-                </div>
+                <p class="card-text"><b>Gambar </b><img src="{{ asset($dokter->image) }}" class="mask waves-effect waves-light rgba-white-slight" height="85px" width="auto"></p>
+                <p class="card-text"><b>Dokumen </b><a href="{{ asset($dokter->doc_pdf) }}" class="btn bg-grey waves-effect m-r-20">Download Pdf</a></p>
+                
             </div>
 
         </div>

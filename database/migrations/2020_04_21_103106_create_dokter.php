@@ -20,6 +20,8 @@ class CreateDokter extends Migration
             $table->string('email');
             $table->string('no_hp');
             $table->string('nip');
+            $table->string('image')->nullable();
+            $table->string('doc_pdf')->nullable();
             $table->timestamps();
             $table->softDeletesTz();
 

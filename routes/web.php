@@ -28,13 +28,14 @@ Route::middleware('auth')->group(function(){
     Route::patch('/kamars/{kamar}', 'KamarController@update');
     
     //dokter
-    Route::get('/dokter/index', 'DokterController@index');
-    Route::get('/dokter/create', 'DokterController@create');
-    Route::get('/dokter/{dokter}', 'DokterController@show');
-    Route::post('/dokter', 'DokterController@store');
-    Route::delete('/dokter/{dokter}', 'DokterController@destroy');
-    Route::get('/dokter/{dokter}/edit', 'DokterController@edit');
-    Route::patch('/dokter/{dokter}', 'DokterController@update');
+    // Route::get('/dokter/index', 'DokterController@index');
+    // Route::get('/dokter/create', 'DokterController@create');
+    // Route::get('/dokter/{dokter}', 'DokterController@show');
+    // Route::post('/dokter', 'DokterController@store');
+    // Route::delete('/dokter/{dokter}', 'DokterController@destroy');
+    // Route::get('/dokter/{dokter}/edit', 'DokterController@edit');
+    // Route::patch('/dokter/{dokter}', 'DokterController@update');
+    Route::resource('dokters', 'DokterController');
     
     
     //pasien

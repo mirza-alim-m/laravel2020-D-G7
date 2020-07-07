@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-6">
             <h1 class="mt-3">Ubah Data Dokter</h1>
-    <form method="post" action="/dokter/{{ $dokter->id}}">
+    <form method="post" action="{{ route('dokters.update', $dokter->id) }}" enctype="multipart/form-data">
         @method('patch')
         @csrf
         <div class="form-group">
@@ -32,6 +32,23 @@
             <label for="nip">nip</label>
             <input type="text" class="form-control @error('nip') is-invalid @enderror" id="nip" name="nip" value="{{ $dokter->nip }}">
             @error('nip')<div class="invalid-feedback">{{ $message }}</div>@enderror
+        </div>
+        <div class="form-group">
+            <div class="form-line">
+                <label for="file">UBAH GAMBAR</label>
+                <div class="fallback">
+                    <img src="{{ asset($dokter->image) }}" class="mask waves-effect waves-light rgba-white-slight" height="100px" width="auto" alt="tidak ada gambar">
+                    <input name="image" type="file" multiple value="{{ $dokter->image }}" />
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-line">
+                <label for="file">UBAH DOKUMEN</label>
+                <div class="fallback">
+                    <input name="doc_pdf" type="file" multiple value="{{ $dokter->doc_pdf }}" />
+                </div>
+            </div>
         </div>
 
 <button type="submit" class="btn btn-success">Ubah</button>
