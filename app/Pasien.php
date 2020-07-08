@@ -8,7 +8,7 @@ class Pasien extends Model
 {
     protected $table='pasien';
 
-    protected $fillable = ['nama','alamat','kecamatan','no_hp','jenis'];
+    protected $guarded = [];
     
     use Sortable;
 

@@ -19,6 +19,8 @@ class CreatePasien extends Migration
             $table->string('alamat');
             $table->string('kecamatan');
             $table->char('no_hp');
+            $table->string('foto')->nullable();
+            $table->string('pdf')->nullable();
             $table->timestamps();
             $table->softDeletesTz();
         });

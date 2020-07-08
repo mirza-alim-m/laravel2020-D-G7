@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Pasien;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Storage;
+
 class PasienController extends Controller
 {
     /**
@@ -43,13 +45,23 @@ class PasienController extends Controller
             'alamat' => 'required',
             'kecamatan' => 'required',
             'no_hp' => 'required|size:12',
-           // 'jenis' => 'required'
-
-
+            'foto' => 'image|mimes:jpg,jpeg,png,gif|max:2048',
+            'pdf' => 'mimes:pdf|max:2048'
         ]);
 
-        //menggunakn fillabel di model
-        Pasien::create($request->all());
+        
+        $foto = $request->file('foto')->store('gambar_pasien');
+        
+        $pdf = $request->file('pdf')->store('pdf_pasien');
+
+        Pasien::create(
+            ['nama' => $request->nama,
+            'alamat' => $request->alamat,
+            'kecamatan' => $request->kecamatan,
+            'no_hp' => $request->no_hp,
+            'foto' => $foto,
+            'pdf' => $pdf]
+        );
         return redirect('/pasien/index')->with('status', 'Data Berhasil ditambahkan');
     }
 
@@ -84,25 +96,47 @@ class PasienController extends Controller
      * @param  \App\Supplier  $supplier
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pasien $pasien)
+    public function update(Request $request, $pasien)
     {
         $request->validate([
             'nama' => 'required',
             'alamat' => 'required',
             'kecamatan' => 'required',
-            'no_hp' => 'required|size:12',
-            'jenis' => 'required'
-
+            'no_hp' => 'required',
+            'foto' => 'image|mimes:jpg,jpeg,png,gif|max:2048',
+            'pdf' => 'mimes:pdf|max:2048'
         ]);
-        Pasien::where('id',$pasien->id)
-            ->update([
+
+
+        $pasiens = Pasien::findOrFail($pasien);
+            
+        $foto = $pasiens->foto;
+        $pdf = $pasiens->pdf;
+
+        if($request->foto){
+            $foto = $request->file('foto')->store('gambar_pasien');
+            $foto_path = $pasiens->foto;
+            if(Storage::exists($foto_path)){
+                Storage::delete($foto_path);
+            }
+        }
+
+        if($request->pdf){
+            $pdf = $request->file('pdf')->store('pdf_pasien');
+            $pdf_path = $pasiens->pdf;
+            if(Storage::exists($pdf_path)){
+                Storage::delete($pdf_path);
+            }
+        }
+        $pasiens->update([
                 'nama' => $request->nama,
                 'alamat' => $request->alamat,
                 'kecamatan' => $request->kecamatan,
                 'no_hp'=> $request->no_hp,
-                'jenis'=> $request->jenis
+                'foto' => $foto,
+                'pdf' => $pdf
             ]);
-            return redirect('/pasien/index')->with('status', 'Data Berhasil diubah');
+        return redirect('/pasien/index')->with('status', 'Data Berhasil diubah');
     }
 
     /**
@@ -111,9 +145,22 @@ class PasienController extends Controller
      * @param  \App\Pasien  $pasien
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pasien $pasien)
+    public function destroy($pasien)
     {
-        Pasien::destroy($pasien->id);
+        $pasiens = Pasien::findOrFail($pasien);
+        $foto = $pasiens->foto;
+        $pdf = $pasiens->pdf;
+
+        if(Storage::exists($foto)){
+            Storage::delete($foto);
+        }
+
+        if(Storage::exists($pdf)){
+            Storage::delete($pdf);
+        }
+
+        $pasiens->delete();
+
         return redirect('/pasien/index')->with('status', 'Data Berhasil dihapus'); 
     }
 }

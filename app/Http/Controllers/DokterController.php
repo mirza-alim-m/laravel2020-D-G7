@@ -39,16 +39,6 @@ class DokterController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'nama' => 'required',
-        //     'alamat' => 'required',
-        //     'email' => 'required',
-        //     'nip' => 'required|size:12'
-
-        // ]);
-
-        //menggunakn fillabel di model
-        // Dokter::create($request->all());
         request()->validate([
             'nama' => 'required',
             'alamat' => 'required',
