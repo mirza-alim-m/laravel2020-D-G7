@@ -35,7 +35,7 @@
                         {{ Auth::user()->name }} <i class="fas fa-user fa-fw"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a href="" class="dropdown-item">
+                        <a href="{{ route('user.password.edit') }}" class="dropdown-item">
                             Change Password
                             </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST">

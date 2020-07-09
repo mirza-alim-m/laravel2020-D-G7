@@ -61,3 +61,12 @@ Route::middleware('auth')->group(function(){
 
 Route::get('/sign-in/github', 'Auth\LoginController@github');
 Route::get('/sign-in/github/redirect', 'Auth\LoginController@githubRedirect'); 
+
+Route::group(['middleware' => 'auth'], function () {
+
+    Route::get('password', 'PasswordController@edit')
+        ->name('user.password.edit');
+
+    Route::patch('password', 'PasswordController@update')
+        ->name('user.password.update');
+});
