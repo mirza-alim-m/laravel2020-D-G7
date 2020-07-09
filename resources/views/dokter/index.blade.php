@@ -1,4 +1,5 @@
-@extends('layout/main')
+@extends('layouts.master')
+
 @section('content')
 @if (session('status'))
 <div class="alert alert-success">
@@ -9,8 +10,9 @@
     <h1 class="mt-3">Daftar Dokter</h1>
     <div class="float-right">
         <form action="{{ route('dokters.index')}}">
-            <table>
+            <table><br>
                 <tr>
+                    <td><a href="/dokters/create" class="btn btn-primary mr-20">tambah data</a></td>
                     <td><input type="text" name="cari" placeholder="Cari data" class="form-control"></td>
                     <td><button type="submit" class="btn btn-primary">Cari</button></td>
                 </tr>

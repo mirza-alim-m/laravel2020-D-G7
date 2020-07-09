@@ -1,4 +1,5 @@
-@extends('layout/main')
+@extends('layouts.master')
+
 @section('content')
 @if (session('status'))
 <div class="alert alert-success">
@@ -11,6 +12,7 @@
         <form action="{{ url('/kamars/index') }}" method="get">
             <table>
                 <tr>
+                    <td><a href="/kamars/create" class="btn btn-primary mr-20">tambah data</a></td>
                     <td><input type="text" name="cari" placeholder="Cari data" class="form-control"></td>
                     <td><button type="submit" class="btn btn-primary">Cari</button></td>
                 </tr>
