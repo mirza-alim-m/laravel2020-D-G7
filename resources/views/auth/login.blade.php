@@ -63,6 +63,7 @@
                                     </a>
                                 @endif
                             </div>
+                            <a href="/sign-in/github"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="18%"></a>
                         </div>
                     </form>
                 </div>

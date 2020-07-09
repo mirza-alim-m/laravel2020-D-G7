@@ -56,4 +56,8 @@ Route::middleware('auth')->group(function(){
     Route::get('/pegawai/{pegawai}/edit', 'PegawaiController@edit');
     Route::patch('/pegawai/{pegawai}', 'PegawaiController@update');
 
+
 });
+
+Route::get('/sign-in/github', 'Auth\LoginController@github');
+Route::get('/sign-in/github/redirect', 'Auth\LoginController@githubRedirect'); 
