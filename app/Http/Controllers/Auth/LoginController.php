@@ -66,4 +66,26 @@ class LoginController extends Controller
 
         return redirect('/');
     }
+
+    public function twitter() {
+        return Socialite::driver('twitter')->redirect();
+    }
+    
+    public function twitterRedirect() {
+        $user = Socialite::driver('twitter')->user();
+
+        // dd($user);
+
+        $user = User::firstOrCreate([
+            'email' => $user->email
+        ], [
+            'name' => $user->name,
+            'password' => Hash::make(Str::random(24))
+        ]);
+
+        Auth::login($user, true);
+
+        return redirect('/');
+    }
+
 }

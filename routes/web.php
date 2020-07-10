@@ -59,8 +59,6 @@ Route::middleware('auth')->group(function(){
 
 });
 
-Route::get('/sign-in/github', 'Auth\LoginController@github');
-Route::get('/sign-in/github/redirect', 'Auth\LoginController@githubRedirect'); 
 
 Route::group(['middleware' => 'auth'], function () {
 
@@ -70,3 +68,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::patch('password', 'PasswordController@update')
         ->name('user.password.update');
 });
+
+// Route::get('auth/{provider}', 'Auth\AuthController@redirectToProvider');
+// Route::get('auth/{provider}/callback', 'Auth\AuthController@handleProviderCallback');
+
+Route::get('/sign-in/github', 'Auth\LoginController@github');
+Route::get('/sign-in/github/redirect', 'Auth\LoginController@githubRedirect');
+
+Route::get('/sign-in/twitter', 'Auth\LoginController@twitter');
+Route::get('/sign-in/twitter/redirect', 'Auth\LoginController@twitterRedirect');

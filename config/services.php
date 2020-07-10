@@ -35,4 +35,10 @@ return [
         'redirect'      => env('GITHUB_REDIRECT_URL'),
     ],
 
+    'twitter' => [
+        'client_id' => env('TWITTER_CLIENT_ID'),
+        'client_secret' => env('TWITTER_CLIENT_SERVER'),
+        'redirect'      => env('TWITTER_REDIRECT_URL'),
+    ],
+
 ];
