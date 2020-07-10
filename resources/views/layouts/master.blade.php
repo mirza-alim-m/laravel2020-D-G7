@@ -90,7 +90,7 @@
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Terimakasih untuk Surati Mardikaningsih,Mbahe nyong sing wis biayai nyong anjog seprene lan wis gawe atiku seneng, MATURNUWUN :"</div>
+                            <div class="text-muted">Copyright &copy; Dimas Rayandra and Friends</div>
                         </div>
                     </div>
                 </footer>
