@@ -14,6 +14,7 @@ Langkah Install Project :
   4. php artisan migrate(opsional : php artisan migrate:fresh)
   5. php artisan db:seed --class=DatabaseSeeder
   7.kalau error di socialite masukan berikut ke file env
+   
     GITHUB_CLIENT_ID= 181d27c013617579460c
     GITHUB_CLIENT_SERVER= a966921a0f1acce32e9804bb1b2755c1e0d2aae5
     GITHUB_REDIRECT_URL= http://localhost:8000/sign-in/github/redirect
