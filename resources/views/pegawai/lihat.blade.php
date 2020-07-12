@@ -13,6 +13,9 @@
                 <h6 class="card-subtitle mb-2 text-muted"><u>{{$pegawai->alamat}}</u></h6>
                 <p class="card-text"><b>Email </b><i>{{$pegawai->email}}</i></p>
                 <p class="card-text"><b>No HP </b>{{$pegawai->no_hp}}</p>
+                <img src="{{ asset('storage/'.$pegawai->image) }}" alt="" srcset="" width="200"><br>
+                <a href="{{ asset('storage/'.$pegawai->doc_pdf) }}" target="_blank"> Download PDF</a>
+                <div>
                 <a href="/pegawai/index" class="card-link">Kembali</a>
              
                 </div>
