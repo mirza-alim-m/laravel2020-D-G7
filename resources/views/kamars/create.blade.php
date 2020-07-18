@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-6">
             <h1 class="mt-3">Tambah Data Kamar</h1>
-    <form method="post" action="/kamars">
+    <form method="post" action="/kamars"enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="nama">Nama</label>

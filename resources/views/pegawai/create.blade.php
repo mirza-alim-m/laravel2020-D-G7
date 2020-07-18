@@ -37,7 +37,22 @@
                         value="{{old('no_hp')}}">
                     @error('no_hp')<div class="invalid-feedback">{{ $message }}</div>@enderror
                 </div>
-
+                <div class="form-group">
+                <div class="form-line">
+                <div class="fallback">
+                    <label>UNGGAH GAMBAR</label>
+                    <input name="image" type="file" multiple required />
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-line">
+                <div class="fallback">
+                    <label>UNGGAH DOKUMEN</label>
+                    <input name="doc_pdf" type="file" multiple required />
+                </div>
+            </div>
+        </div>
                 <button type="submit" class="btn btn-primary">Tambah</button>
             </form>
         </div>

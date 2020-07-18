@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Kamar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Storage;
 class KamarController extends Controller
 {
     /**
@@ -48,12 +49,21 @@ class KamarController extends Controller
         $request->validate([
             'nama' => 'required',
             'ruangan' => 'required|size:4',
-            'kelas' => 'required'
-
+            'kelas' => 'required',
+                'gambar' => 'required|image|mimes:jpeg,jpg,png,gif',
+                'file' => 'required|mimes:pdf'
+            ]);
+            $gambar = $request->file('gambar')->getClientOriginalName();
+            $foto = $request->file('gambar')->storeAs('kamar',$gambar);
+            $file = $request->file('file')->getClientOriginalName();
+            $pdf = $request->file('file')->storeAs('kamar',$file);
+            //menggunakn fillabel di model
+        Kamar::create([
+            'nama'=>$request->nama,
+            'ruang'=>$request->ruang,
+            'gambar'=>$foto,
+            'pdf'=>$pdf
         ]);
-
-        //menggunakn fillabel di model
-        Kamar::create($request->all());
         return redirect('/kamars/index');
     }
 
@@ -91,14 +101,39 @@ class KamarController extends Controller
         $request->validate([
             'nama' => 'required',
             'ruangan' => 'required|size:4',
-            'kelas' => 'required'
-
-        ]);
+            'kelas' => 'required',
+                'gambar' => 'image|mimes:jpeg,jpg,png,gif',
+                'file' => 'mimes:pdf'
+    
+            ]);
+            //ambi data foto lama
+            $lama = Kamar::findOrfail($kamar->id);
+            $fotolama =$lama->gambar;
+            $pdflama =$lama->pdf;
+            $foto=$fotolama;
+            $pdf=$pdflama;
+            //cek ada update gambar atu tidak
+            if ($request->gambar) {
+                //hapus fto lama
+                Storage::delete($fotolama);
+                //simpan gambar baruige:
+                $gambar = $request->file('gambar')->getClientOriginalName();
+                $foto = $request->file('gambar')->storeAs('kamar',$gambar);
+             }
+             if ($request->file) {
+                //hapus fto lama
+                Storage::delete($pdflama);
+                //simpan gambar baruige:
+                $file = $request->file('file')->getClientOriginalName();
+                $pdf = $request->file('file')->storeAs('kamar',$file);
+             }
         Kamar::where('id',$kamar->id)
-            ->update([
+        ->update([
                 'nama' => $request->nama,
                 'ruangan' => $request->ruangan,
                 'kelas' => $request->kelas,
+                'gambar'=>$foto,
+                'pdf'=>$pdf
             ]);
             return redirect('/kamars/index');
     }
@@ -110,7 +145,11 @@ class KamarController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Kamar $kamar)
-    {
+    {     
+        $s = Kamar::findOrfail($kamar->id);
+        Storage::delete($s->gambar);
+        Storage::delete($s->pdf);
+
         Kamar::destroy($kamar->id);
         return redirect('/kamars/index'); 
     }

@@ -18,6 +18,8 @@ class CreateKamars extends Migration
             $table->string('nama');
             $table->string('kelas');
             $table->string('ruangan');
+            $table->text('gambar')->nullable();
+            $table->text('pdf')->nullable();
             $table->timestamps();
             $table->softDeletesTz();
 
