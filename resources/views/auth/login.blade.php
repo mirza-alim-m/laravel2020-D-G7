@@ -64,8 +64,8 @@
                                 @endif
                             </div>
                             <center>
-                            <a href="/sign-in/github"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="18%"></a>
-                            <a href="/sign-in/twitter"><img src="https://img.icons8.com/fluent/48/000000/twitter.png" width="18%" /></a>
+                            <a href="/auth/github"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="18%"></a>
+                            <a href="/auth/twitter"><img src="https://img.icons8.com/fluent/48/000000/twitter.png" width="18%" /></a>
                         </center>
                         </div>
                     </form>

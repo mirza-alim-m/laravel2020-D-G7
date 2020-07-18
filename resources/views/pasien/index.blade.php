@@ -28,7 +28,7 @@
                     <th>@sortablelink('alamat')</th>
                     <th>@sortablelink('foto')</th>
                     <th>@sortablelink('pdf')</th>
-                    <th>Aksii</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>

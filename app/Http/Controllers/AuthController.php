@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
+use DateTime;
 
 class AuthController extends Controller
 {
@@ -28,7 +29,7 @@ class AuthController extends Controller
         $user = Socialite::driver($provider)->user();
         $authUser = $this->findOrCreateUser($user, $provider);
         Auth::login($authUser, true);
-        return redirect('/');
+        return redirect('/home');
     }
 
     /**
@@ -40,6 +41,7 @@ class AuthController extends Controller
      */
     public function findOrCreateUser($user, $provider)
     {
+        $now= new DateTime("NOW");
         $authUser = User::where('provider_id', $user->id)->first();
         if ($authUser) {
             return $authUser;
@@ -49,7 +51,8 @@ class AuthController extends Controller
                 'name'     => $user->name,
                 'email'    => !empty($user->email)? $user->email : '' ,
                 'provider' => $provider,
-                'provider_id' => $user->id
+                'provider_id' => $user->id,
+                'email_verified_at' => $now
             ]);
             return $data;
         }

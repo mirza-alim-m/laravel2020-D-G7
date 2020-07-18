@@ -12,11 +12,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
+Auth::routes(['verify'=>true]);
 
 
-Route::middleware('auth')->group(function(){
+Route::group(['middleware' => 'auth','middleware'=>'verified'], function () {
     Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/home', 'HomeController@index')->name('home');
     
     //Kamar
     Route::get('/kamars/index', 'KamarController@index');
@@ -72,8 +73,11 @@ Route::group(['middleware' => 'auth'], function () {
 // Route::get('auth/{provider}', 'Auth\AuthController@redirectToProvider');
 // Route::get('auth/{provider}/callback', 'Auth\AuthController@handleProviderCallback');
 
-Route::get('/sign-in/github', 'Auth\LoginController@github');
-Route::get('/sign-in/github/redirect', 'Auth\LoginController@githubRedirect');
+// Route::get('/sign-in/github', 'Auth\LoginController@github');
+// Route::get('/sign-in/github/redirect', 'Auth\LoginController@githubRedirect');
 
-Route::get('/sign-in/twitter', 'Auth\LoginController@twitter');
-Route::get('/sign-in/twitter/redirect', 'Auth\LoginController@twitterRedirect');
+// Route::get('/sign-in/twitter', 'Auth\LoginController@twitter');
+// Route::get('/sign-in/twitter/redirect', 'Auth\LoginController@twitterRedirect');
+
+Route::get('auth/{provider}', 'AuthController@redirectToProvider');
+Route::get('auth/{provider}/callback', 'AuthController@handleProviderCallback');
