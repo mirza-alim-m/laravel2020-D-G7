@@ -56,17 +56,16 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
-
+                                <a href="/auth/github" class="mx-3"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="10%"></a>
+                                <a href="/auth/twitter"><img src="https://img.icons8.com/fluent/48/000000/twitter.png" width="10%" /></a>
+                                <a href="/auth/facebook" class="mx-3"><img src="https://img.icons8.com/fluent/48/000000/facebook-new.png" width="10%"/></a>
+                                <br>
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
                             </div>
-                            <center>
-                            <a href="/auth/github"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="18%"></a>
-                            <a href="/auth/twitter"><img src="https://img.icons8.com/fluent/48/000000/twitter.png" width="18%" /></a>
-                        </center>
                         </div>
                     </form>
                 </div>

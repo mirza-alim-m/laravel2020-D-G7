@@ -41,4 +41,10 @@ return [
         'redirect'      => env('TWITTER_REDIRECT_URL'),
     ],
 
+    'facebook' => [
+        'client_id' => env('FACEBOOK_CLIENT_ID'),
+        'client_secret' => env('FACEBOOK_CLIENT_SERVER'),
+        'redirect'      => env('FACEBOOK_REDIRECT_URL'),
+    ],
+
 ];
