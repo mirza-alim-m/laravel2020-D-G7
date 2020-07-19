@@ -27,8 +27,8 @@
                 <th>No</th>
                 <th>@sortablelink('nama')</th>
                 <th>@sortablelink('jabatan')</th>
-                <th>@sortablelink('image')</th>
-                <th>@sortablelink('doc_pdf')</th>
+                <th>@sortablelink('foto')</th>
+                <th>@sortablelink('pdf')</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -39,20 +39,20 @@
                 <td>{{$peg->nama}}</td>
                 <td>{{$peg->jabatan}}</td>
                 <td>
-                @if($peg->image!= NULL)
-                           <img src="{{ asset($peg->image) }}" class="mask waves-effect waves-light rgba-white-slight" height="85px" width="auto">
-                        @else
-                            <h5 style="color:red">Tidak ada Gambar</h5>
-                        @endif 
-                    </td>
-                    <td>
-                        @if($peg->doc_pdf!= NULL)
-                           <a href="{{ asset($peg->doc_pdf) }}" class="btn bg-grey waves-effect m-r-20">Download Pdf</a>
-                        @else
-                            <h5 style="color:red">Tidak ada file PDF</h5>
-                        @endif 
-                    </td>
-                    <td>
+                    @if($peg->foto != NULL)
+                    <img src="{{ asset('storage/'.$peg->foto) }}" class="mask waves-effect waves-light rgba-white-slight" height="85px" width="auto">
+                    @else
+                    <h5 style="color:red">Tidak ada Gambar</h5>
+                    @endif
+                </td>
+                <td>
+                @if($peg->pdf!= NULL)
+                       <a href="{{ asset('storage/'.$peg->pdf) }}" target="_blank" class="btn bg-grey waves-effect m-r-20">Download PDF</a>
+                    @else
+                        <h5 style="color:red">Tidak ada file PDF</h5>
+                    @endif 
+                </td>
+                <td>
                     <a href="{{$peg->id}}/edit" class="btn btn-success btn-sm">Ubah</a>
                     <form action="/pegawai/{{ $peg->id }}" method="post" class="d-inline">
                         @method('delete')

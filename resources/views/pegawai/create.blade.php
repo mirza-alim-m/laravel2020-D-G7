@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-6">
             <h1 class="mt-3">Tambah Data Pegawai</h1>
-            <form method="post" action="/pegawai">
+            <form method="post" action="/pegawai" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label for="nama">Nama Pegawai</label>
@@ -38,21 +38,15 @@
                     @error('no_hp')<div class="invalid-feedback">{{ $message }}</div>@enderror
                 </div>
                 <div class="form-group">
-                <div class="form-line">
-                <div class="fallback">
-                    <label>UNGGAH GAMBAR</label>
-                    <input name="image" type="file" multiple required />
+                    <label for="foto">Foto</label>
+                    <input type="file" class="form-control @error('foto') is-invalid @enderror" id="foto" name="foto" value="{{old('foto')}}">
+                    @error('foto')<div class="invalid-feedback">{{ $message }}</div>@enderror
                 </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="form-line">
-                <div class="fallback">
-                    <label>UNGGAH DOKUMEN</label>
-                    <input name="doc_pdf" type="file" multiple required />
+                <div class="form-group">
+                    <label for="pdf">PDF</label>
+                    <input type="file" class="form-control @error('pdf') is-invalid @enderror" id="pdf" name="pdf" value="{{old('pdf')}}">
+                    @error('pdf')<div class="invalid-feedback">{{ $message }}</div>@enderror
                 </div>
-            </div>
-        </div>
                 <button type="submit" class="btn btn-primary">Tambah</button>
             </form>
         </div>

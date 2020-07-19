@@ -8,15 +8,15 @@
 
             <div class="card">
                 <div class="card-body">
-                <h3 class="card-title"><b>{{$pegawai->nama}}</b></h3>
-                <h5 class="card-title">{{$pegawai->jabatan}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted"><u>{{$pegawai->alamat}}</u></h6>
-                <p class="card-text"><b>Email </b><i>{{$pegawai->email}}</i></p>
-                <p class="card-text"><b>No HP </b>{{$pegawai->no_hp}}</p>
-                <img src="{{ asset('storage/'.$pegawai->image) }}" alt="" srcset="" width="200"><br>
-                <a href="{{ asset('storage/'.$pegawai->doc_pdf) }}" target="_blank"> Download PDF</a>
+                <p class="card-text"><b>Nama</b><br>{{$pegawai->nama}}</p>
+                <p class="card-text"><b>Jabatan</b><br>{{$pegawai->jabatan}}</p>
+                <p class="card-text"><b>Alamat</b><br>{{$pegawai->alamat}}</p>
+                <p class="card-text"><b>Email</b><br><i>{{$pegawai->email}}</i></p>
+                <p class="card-text"><b>No. Handphone</b><br>{{$pegawai->no_hp}}</p>
+                <p class="card-text"><b>Foto</b><br><img src="{{ asset('storage/'.$pegawai->foto) }}" alt="" srcset="" width="200"></p>
+                <p class="card-text"><b>PDF</b><br><a href="{{ asset('storage/'.$pegawai->pdf) }}" target="_blank"> Download PDF</a></p>
                 <div>
-                <a href="/pegawai/index" class="card-link">Kembali</a>
+                <a href="/pegawai/index" class="card-link btn btn-primary">Kembali</a>
              
                 </div>
             </div>

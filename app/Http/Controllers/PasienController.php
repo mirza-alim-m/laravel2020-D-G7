@@ -136,6 +136,7 @@ class PasienController extends Controller
                 'foto' => $foto,
                 'pdf' => $pdf
             ]);
+        
         return redirect('/pasien/index')->with('status', 'Data Berhasil diubah');
     }
 

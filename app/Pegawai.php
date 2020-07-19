@@ -9,9 +9,9 @@ class Pegawai extends Model
 {
     protected $table = 'pegawai';
 
-    protected $fillable = ['nama','jabatan','alamat','email','no_hp'];
+    protected $fillable = ['nama','jabatan','alamat','email','no_hp','foto', 'pdf'];
 
     use Sortable;
 
-    public $sortable = ['nama', 'jabatan'];
+    public $sortable = ['nama','jabatan'];
 }

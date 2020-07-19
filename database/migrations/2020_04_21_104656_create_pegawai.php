@@ -20,6 +20,8 @@ class CreatePegawai extends Migration
             $table->string('alamat');
             $table->string('email');
             $table->string('no_hp');
+            $table->string('foto')->nullable();
+            $table->string('pdf')->nullable();
             $table->softDeletesTz();
             $table->timestamps();
         });
