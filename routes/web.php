@@ -16,6 +16,7 @@ Auth::routes(['verify'=>true]);
 
 
 Route::group(['middleware' => 'auth','middleware'=>'verified'], function () {
+    
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/home', 'HomeController@index')->name('home');
     
@@ -56,7 +57,6 @@ Route::group(['middleware' => 'auth','middleware'=>'verified'], function () {
     Route::delete('/pegawai/{pegawai}', 'PegawaiController@destroy');
     Route::get('/pegawai/{pegawai}/edit', 'PegawaiController@edit');
     Route::patch('/pegawai/{pegawai}', 'PegawaiController@update');
-
 
 });
 
