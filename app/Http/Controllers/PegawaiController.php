@@ -151,7 +151,7 @@ class PegawaiController extends Controller
 
         if($request->foto){
             $foto = $request->file('foto')->store('gambar_pegawai');
-            $foto_path = $pegawai->foto;
+            $foto_path = $pegawais->foto;
             if(Storage::exists($foto_path)){
                 Storage::delete($foto_path);
             }
@@ -159,7 +159,7 @@ class PegawaiController extends Controller
 
         if($request->pdf){
             $pdf = $request->file('pdf')->store('pdf_pegawai');
-            $pdf_path = $pegawai->pdf;
+            $pdf_path = $pegawais->pdf;
             if(Storage::exists($pdf_path)){
                 Storage::delete($pdf_path);
             }
