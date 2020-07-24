@@ -37,6 +37,7 @@ Route::group(['middleware' => 'auth','middleware'=>'verified'], function () {
     // Route::delete('/dokter/{dokter}', 'DokterController@destroy');
     // Route::get('/dokter/{dokter}/edit', 'DokterController@edit');
     // Route::patch('/dokter/{dokter}', 'DokterController@update');
+    
     Route::resource('dokters', 'DokterController');
     
     
@@ -58,26 +59,19 @@ Route::group(['middleware' => 'auth','middleware'=>'verified'], function () {
     Route::get('/pegawai/{pegawai}/edit', 'PegawaiController@edit');
     Route::patch('/pegawai/{pegawai}', 'PegawaiController@update');
 
-});
-
-
-Route::group(['middleware' => 'auth'], function () {
-
     Route::get('password', 'PasswordController@edit')
         ->name('user.password.edit');
 
     Route::patch('password', 'PasswordController@update')
         ->name('user.password.update');
+
 });
 
-// Route::get('auth/{provider}', 'Auth\AuthController@redirectToProvider');
-// Route::get('auth/{provider}/callback', 'Auth\AuthController@handleProviderCallback');
+// Route::get('/auth/github', 'Auth\LoginController@github');
+// Route::get('/auth/github/callback', 'Auth\LoginController@githubRedirect');
 
-// Route::get('/sign-in/github', 'Auth\LoginController@github');
-// Route::get('/sign-in/github/redirect', 'Auth\LoginController@githubRedirect');
-
-// Route::get('/sign-in/twitter', 'Auth\LoginController@twitter');
-// Route::get('/sign-in/twitter/redirect', 'Auth\LoginController@twitterRedirect');
+// Route::get('/auth/twitter', 'Auth\LoginController@twitter');
+// Route::get('/auth/twitter/callback', 'Auth\LoginController@twitterRedirect');
 
 Route::get('auth/{provider}', 'AuthController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'AuthController@handleProviderCallback');
